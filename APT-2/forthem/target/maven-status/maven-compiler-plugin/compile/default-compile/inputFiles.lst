@@ -1,0 +1,14 @@
+D:\APT\src\main\java\com\project\crdt\CRDTCharacter.java
+D:\APT\src\main\java\com\project\crdt\CRDTDocument.java
+D:\APT\src\main\java\com\project\crdt\Identifier.java
+D:\APT\src\main\java\com\project\crdt\Position.java
+D:\APT\src\main\java\com\project\Main.java
+D:\APT\src\main\java\com\project\network\CollaborativeEditorServer.java
+D:\APT\src\main\java\com\project\network\DatabaseService.java
+D:\APT\src\main\java\com\project\network\NetworkClient.java
+D:\APT\src\main\java\com\project\network\Operation.java
+D:\APT\src\main\java\com\project\ui\CursorMarker.java
+D:\APT\src\main\java\com\project\ui\DocumentSelectionDialog.java
+D:\APT\src\main\java\com\project\ui\EditorController.java
+D:\APT\src\main\java\com\project\ui\JoinSessionDialog.java
+D:\APT\src\main\java\com\project\ui\LoginDialog.java

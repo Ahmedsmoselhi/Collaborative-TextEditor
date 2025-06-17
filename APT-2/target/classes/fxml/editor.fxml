@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.project.ui.EditorController"
+            prefHeight="600.0" prefWidth="800.0"
+            stylesheets="/css/styles.css">
+    
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="Open Document..." onAction="#handleOpenDocuments"/>
+                    <MenuItem text="Save Document" onAction="#handleSaveDocument"/>
+                    <SeparatorMenuItem />
+                    <MenuItem text="Import File..." onAction="#handleImportFile"/>
+                    <MenuItem text="Export File..." onAction="#handleExportFile"/>
+                    <SeparatorMenuItem />
+                    <MenuItem text="Exit" onAction="#handleExit"/>
+                </Menu>
+                <Menu text="Edit">
+                    <MenuItem text="Undo" onAction="#handleUndo"/>
+                    <MenuItem text="Redo" onAction="#handleRedo"/>
+                </Menu>
+                <Menu text="Collaboration">
+                    <MenuItem text="Generate Sharing Codes" onAction="#handleGenerateCodes"/>
+                    <MenuItem text="Join Session" onAction="#handleJoinSession"/>
+                </Menu>
+            </MenuBar>
+            
+            <ToolBar>
+                <Button text="Open" onAction="#handleOpenDocuments"/>
+                <Button text="Save" onAction="#handleSaveDocument"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Import" onAction="#handleImportFile"/>
+                <Button text="Export" onAction="#handleExportFile"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Undo" onAction="#handleUndo"/>
+                <Button text="Redo" onAction="#handleRedo"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Share" onAction="#handleGenerateCodes"/>
+                <Button text="Join" onAction="#handleJoinSession"/>
+            </ToolBar>
+        </VBox>
+    </top>
+    
+    <center>
+        <SplitPane dividerPositions="0.8" orientation="HORIZONTAL">
+            <AnchorPane fx:id="editorContainer" minWidth="400">
+                <TextArea fx:id="editorArea" wrapText="true" AnchorPane.topAnchor="0.0" 
+                          AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0" 
+                          AnchorPane.leftAnchor="0.0"/>
+            </AnchorPane>
+            <VBox spacing="10" alignment="TOP_CENTER" maxWidth="250">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Active Users" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                <ListView fx:id="usersListView"/>
+                <Separator/>
+                <Label text="Sharing Codes" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                <GridPane hgap="5" vgap="5">
+                    <Label text="Editor Code:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="editorCodeField" editable="false" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Label text="Viewer Code:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="viewerCodeField" editable="false" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                </GridPane>
+                <Button text="Copy Editor Code" onAction="#handleCopyEditorCode" maxWidth="Infinity"/>
+                <Button text="Copy Viewer Code" onAction="#handleCopyViewerCode" maxWidth="Infinity"/>
+                <Separator/>
+                <Button text="Save Document" onAction="#handleSaveDocument" maxWidth="Infinity"/>
+                <Button text="Open Document" onAction="#handleOpenDocuments" maxWidth="Infinity"/>
+            </VBox>
+        </SplitPane>
+    </center>
+    
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="status-bar">
+            <padding>
+                <Insets top="5" right="10" bottom="5" left="10"/>
+            </padding>
+            <Label fx:id="statusLabel" text="Ready" style="-fx-text-fill: white;"/>
+        </HBox>
+    </bottom>
+    
+</BorderPane> 
